@@ -1,0 +1,450 @@
+{
+    "$schema": "http://json-schema.org/draft/2019-09/schema",
+    "$id": "http://www.costco.com/Integration/Order#",
+    "properties": {
+        "WebOrder": {"$ref": "#/definitions/WebOrder"},
+        "AuthenticationTransactionId": {"type": "string"},
+        "LineOfBusiness": {"type": "string"}
+    },
+    "definitions": {
+        "WebOrder.OrderHeader": {
+            "type": "object",
+            "required": [
+                "SoldToID",
+                "BillingAddressID",
+                "SubTotal",
+                "OMSShippingTotal",
+                "OMSDeliveryFeeTotal",
+                "HandlingTotal",
+                "TaxTotal",
+                "Total",
+                "Created",
+                "OrderID",
+                "UpchargeTotal",
+                "WarehouseNo",
+                "KioskWhs",
+                "IsResale"
+            ],
+            "properties": {
+                "SoldToID": {"type": "string"},
+                "Name": {"type": "string"},
+                "BillingAddressID": {"type": "string"},
+                "SubTotal": {"type": "number"},
+                "OMSShippingTotal": {"type": "number"},
+                "OMSDeliveryFeeTotal": {"type": "number"},
+                "HandlingTotal": {"type": "number"},
+                "TaxTotal": {"type": "number"},
+                "Total": {"type": "number"},
+                "Created": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "OrderID": {"type": "integer"},
+                "MemberNo": {"type": "string"},
+                "UpchargeTotal": {"type": "number"},
+                "WarehouseNo": {"type": "integer"},
+                "KioskWhs": {"type": "integer"},
+                "IsResale": {"type": "boolean"},
+                "ResaleLicense": {"type": "string"},
+                "IPAddress": {"type": "string"},
+                "LanguagePreference": {"type": "string"},
+                "GSTTotal": {"type": "number"},
+                "HSTTotal": {"type": "number"},
+                "PSTTotal": {"type": "number"},
+                "QSTTotal": {"type": "number"},
+                "FSAPayment": {"type": "string"},
+                "IsMailOrder": {"type": "string"},
+                "OrderSubTypeId": {"type": "integer"},
+                "DeviceIndicator": {"type": "string"},
+                "LoginTimestamp": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SourceSystem": {"type": "string"},
+                "PartnerOrderReference": {"type": "string"},
+                "SalesChannelID": {"type": "string"},
+                "AeroplanNumber": {"type": "string"}
+            }
+        },
+        "WebOrder.OrderDetail.SalesChannel": {
+            "type": "object",
+            "properties": {
+                "CatalogId": {"type": "string"},
+                "ProgramType": {"type": "string"}
+            }
+        },
+        "WebOrder.OrderDetail": {
+            "type": "object",
+            "required": [
+                "Quantity",
+                "PlacedPrice",
+                "LineItemDiscountAmount",
+                "OrderLevelDiscountAmount",
+                "ShippingAddressID",
+                "ShippingMethodName",
+                "Description",
+                "SequenceNo",
+                "ItemNo",
+                "ItemType",
+                "TaxCode",
+                "TaxAmount",
+                "OMSShipAmount",
+                "OMSDeliveryFee",
+                "Upcharge",
+                "HandlingFee",
+                "TransTaxedGeoFlag",
+                "TransCombRate",
+                "ShipFromJurisGeo",
+                "DetailShipAcceptJurisGeo",
+                "ShipCode",
+                "CarrierCode",
+                "IsResale",
+                "ParentLineItemID"
+            ],
+            "properties": {
+                "WarehouseNo": {"type": "integer"},
+                "OrderId": {"type": "integer"},
+                "LineItemID": {"type": "string"},
+                "Quantity": {"type": "integer"},
+                "PlacedPrice": {"type": "number"},
+                "ListPrice": {"type": "number"},
+                "LineItemDiscountAmount": {"type": "number"},
+                "OrderLevelDiscountAmount": {"type": "number"},
+                "ShippingAddressID": {"type": "string"},
+                "ShippingMethodName": {"type": "string"},
+                "ExtendedPrice": {"type": "number"},
+                "Description": {"type": "string"},
+                "SequenceNo": {"type": "integer"},
+                "ItemNo": {"type": "string"},
+                "ItemType": {"type": "string"},
+                "TaxCode": {"type": "string"},
+                "TaxAmount": {"type": "number"},
+                "OMSShipAmount": {"type": "number"},
+                "OMSDeliveryFee": {"type": "number"},
+                "Upcharge": {"type": "number"},
+                "HandlingFee": {"type": "number"},
+                "TransTaxedGeoFlag": {"type": "integer"},
+                "TransCombRate": {"type": "number"},
+                "ShipFromJurisGeo": {"type": "integer"},
+                "DetailShipAcceptJurisGeo": {"type": "integer"},
+                "ShipCode": {"type": "string"},
+                "CarrierCode": {"type": "string"},
+                "ConfigID": {"type": "string"},
+                "IsResale": {"type": "boolean"},
+                "PickWarehouseNo": {"type": "integer"},
+                "ParentLineItemID": {"type": "string"},
+                "GSTTotal": {"type": "number"},
+                "HSTTotal": {"type": "number"},
+                "PSTTotal": {"type": "number"},
+                "QSTTotal": {"type": "number"},
+                "ShippingTaxTotal": {"type": "number"},
+                "ShippingGSTTotal": {"type": "number"},
+                "ShippingHSTTotal": {"type": "number"},
+                "ShippingPSTTotal": {"type": "number"},
+                "ShippingQSTTotal": {"type": "number"},
+                "AS400ShipCode": {"type": "string"},
+                "PreferredArrivalDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "OrderPaymentID": {"type": "string"},
+                "ConfigXml": {"type": "string"},
+                "PlainPackaging": {"type": "boolean"},
+                "CanGroupForShipping": {"type": "string"},
+                "ShipToWarehouse": {"type": "integer"},
+                "SMSPhone": {"type": "string"},
+                "PartnerLineReference": {"type": "string"},
+                "OrderStatus": {"type": "string"},
+                "MinOrderDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "MaxOrderDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SalesChannel": {"$ref": "#/definitions/WebOrder.OrderDetail.SalesChannel"},
+                "EstimatedDeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ImageURL": {"type": "string"},
+                "ScheduledDeliveryDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "ScheduledDeliveryDateEnd": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "EarliestAvailableCalendarDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "SupplierAvailabilityDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "FulfilledBy": {"type": "string"},
+                "EDDRequestTransactionId": {"type": "string"},
+                "FulfillmentcentercompanyID": {"type": "integer"},
+                "BOFirstShipDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "BOLastShipDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "BOAvailableToSellDate": {
+                    "type": "string",
+                    "format": "date"
+                },
+                "BackorderType": {"type": "string"},
+                "BOTypeDescription": {"type": "string"}
+            }
+        },
+        "WebOrder.OrderDiscount": {
+            "type": "object",
+            "required": ["LineItemID"],
+            "properties": {
+                "LineItemID": {"type": "string"},
+                "Priority": {"type": "integer"},
+                "DiscountAmount": {"type": "number"},
+                "DiscountType": {"type": "string"},
+                "DiscountValue": {"type": "number"},
+                "DiscountName": {"type": "string"},
+                "PromoCode": {"type": "string"},
+                "IsPreTaxDiscount": {"type": "boolean"}
+            }
+        },
+        "WebOrder.OrderPayment.Agreement": {
+            "type": "object",
+            "required": [
+                "Id",
+                "Type"
+            ],
+            "properties": {
+                "Id": {"type": "string"},
+                "Type": {"type": "string"}
+            }
+        },
+        "WebOrder.OrderPayment": {
+            "type": "object",
+            "required": [
+                "PayTypeCode",
+                "Number",
+                "Amount"
+            ],
+            "properties": {
+                "SequenceNo": {"type": "integer"},
+                "OrderPaymentID": {"type": "string"},
+                "PayTypeCode": {"type": "string"},
+                "PayTypeName": {"type": "string"},
+                "Number": {"type": "string"},
+                "IsNumberEncrypted": {"type": "integer"},
+                "ExpMonth": {"type": "integer"},
+                "ExpYear": {"type": "integer"},
+                "CVV2": {"type": "string"},
+                "Pin": {"type": "string"},
+                "Name": {"type": "string"},
+                "Amount": {"type": "number"},
+                "RoutingNumber": {"type": "string"},
+                "BankName": {"type": "string"},
+                "CheckNumber": {"type": "string"},
+                "BankAccountTypeCode": {"type": "string"},
+                "IsFSAPayment": {"type": "boolean"},
+                "EPRAccountUserID": {"type": "string"},
+                "EPRPaymentAccountID": {"type": "string"},
+                "SessionID": {"type": "string"},
+                "CardIdentification": {"type": "string"},
+                "AuthenticationTransactionId": {"type": "object"},
+                "LineOfBusiness": {"type": "object"},
+                "Agreement": {"$ref": "#/definitions/WebOrder.OrderPayment.Agreement"},
+                "EciIndicator": {"type": "integer"}
+            }
+        },
+        "WebOrder.OrderAddress": {
+            "type": "object",
+            "required": [
+                "OrderAddressID",
+                "FirstName",
+                "LastName",
+                "Line1",
+                "City",
+                "State",
+                "CountryName",
+                "PostalCode",
+                "DaytimePhoneNumber",
+                "EveningPhoneNumber",
+                "Email",
+                "ContactInfo",
+                "ContactPhone",
+                "OrderAcceptJurisGeo",
+                "ShipToJurisGeo",
+                "ShipTransTotalTax",
+                "RequestedShipDate",
+                "DeliveryComment"
+            ],
+            "properties": {
+                "OrderAddressID": {"type": "string"},
+                "FirstName": {"type": "string"},
+                "LastName": {"type": "string"},
+                "Organization": {"type": "string"},
+                "Line1": {"type": "string"},
+                "Line2": {"type": "string"},
+                "Line3": {"type": "string"},
+                "City": {"type": "string"},
+                "State": {"type": "string"},
+                "Country": {"type": "string"},
+                "CountryName": {"type": "string"},
+                "PostalCode": {"type": "string"},
+                "RegionCode": {"type": "string"},
+                "RegionName": {"type": "string"},
+                "DaytimePhoneNumber": {"type": "string"},
+                "EveningPhoneNumber": {"type": "string"},
+                "FaxNumber": {"type": "string"},
+                "Email": {"type": "string"},
+                "CustomerNo": {"type": "integer"},
+                "ContactInfo": {"type": "string"},
+                "ContactPhone": {"type": "string"},
+                "County": {"type": "string"},
+                "OrderAcceptJurisGeo": {"type": "integer"},
+                "ShipToJurisGeo": {"type": "integer"},
+                "ShipTransTotalTax": {"type": "number"},
+                "RequestedShipDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "DeliveryComment": {"type": "string"},
+                "IsOverride": {"type": "boolean"},
+                "MFLFlag": {"type": "boolean"},
+                "RDI": {"type": "string"}
+            }
+        },
+        "WebOrder.OrderGiftMessage": {
+            "type": "object",
+            "required": [
+                "ToFirstName",
+                "ToLastName",
+                "FromName",
+                "Message",
+                "OrderShippingAddressID",
+                "SendWithoutMessage"
+            ],
+            "properties": {
+                "ToFirstName": {"type": "string"},
+                "ToLastName": {"type": "string"},
+                "FromName": {"type": "string"},
+                "Message": {"type": "string"},
+                "OrderShippingAddressID": {"type": "string"},
+                "SendWithoutMessage": {"type": "boolean"}
+            }
+        },
+        "WebOrder.OrderPaymentAuthorization": {
+            "type": "object",
+            "required": [
+                "OrderPaymentID",
+                "MethodOfPayment",
+                "Amount",
+                "UseThisForSettlement"
+            ],
+            "properties": {
+                "OrderPaymentID": {"type": "string"},
+                "OrderCorrelationID": {"type": "string"},
+                "MethodOfPayment": {"type": "string"},
+                "ExpirationDate": {"type": "string"},
+                "Amount": {"type": "string"},
+                "ResponseDate": {"type": "string"},
+                "ResponseReasonCode": {"type": "string"},
+                "AuthorizationCode": {"type": "string"},
+                "AVSResponseCode": {"type": "string"},
+                "CSVResponseCode": {"type": "string"},
+                "CAVVResponseCode": {"type": "string"},
+                "UseThisForSettlement": {"type": "integer"},
+                "FSAPayment": {"type": "integer"},
+                "AttemptNumber": {"type": "string"},
+                "DateTime": {"type": "string"},
+                "MaxRetriesAllowed": {"type": "string"},
+                "ReasonForNoAuth": {"type": "string"},
+                "ChangeDataMask": {"type": "string"},
+                "BMLItemCategoryCode": {"type": "string"},
+                "CardTransactionIdentifier": {"type": "string"}
+            }
+        },
+        "WebOrder.OrderFraudCheck": {
+            "type": "object",
+            "required": [
+                "TransactionId",
+                "CrossReference",
+                "RulesTripped",
+                "TotalScore",
+                "RecommendationCode",
+                "Remarks"
+            ],
+            "properties": {
+                "TransactionId": {"type": "string"},
+                "CrossReference": {"type": "string"},
+                "RulesTripped": {"type": "string"},
+                "TotalScore": {"type": "integer"},
+                "RecommendationCode": {"type": "string"},
+                "Remarks": {"type": "string"}
+            }
+        },
+        "WebOrder.DigitalFulfillmentRequest": {
+            "type": "object",
+            "required": [
+                "Status",
+                "Description"
+            ],
+            "properties": {
+                "Status": {"type": "string"},
+                "Description": {"type": "string"}
+            }
+        },
+        "WebOrder": {
+            "type": "object",
+            "required": [
+                "OrderHeader",
+                "OrderDetail",
+                "OrderPayment",
+                "OrderAddress"
+            ],
+            "properties": {
+                "OrderHeader": {"$ref": "#/definitions/WebOrder.OrderHeader"},
+                "OrderDetail": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/WebOrder.OrderDetail"},
+                    "minItems": 1
+                },
+                "OrderDiscount": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/WebOrder.OrderDiscount"},
+                    "minItems": 0
+                },
+                "OrderPayment": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/WebOrder.OrderPayment"},
+                    "minItems": 1
+                },
+                "OrderAddress": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/WebOrder.OrderAddress"},
+                    "minItems": 2
+                },
+                "OrderGiftMessage": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/WebOrder.OrderGiftMessage"},
+                    "minItems": 0
+                },
+                "OrderPaymentAuthorization": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/WebOrder.OrderPaymentAuthorization"},
+                    "minItems": 0
+                },
+                "OrderFraudCheck": {"$ref": "#/definitions/WebOrder.OrderFraudCheck"},
+                "DigitalFulfillmentRequest": {"$ref": "#/definitions/WebOrder.DigitalFulfillmentRequest"}
+            }
+        }
+    }
+}
